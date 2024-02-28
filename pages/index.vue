@@ -29,8 +29,6 @@
       <span class="letter">v</span>
   </div>
 
-  <!-- Digital Agency, <br> Creative Studio <br> & Web Development, <br> based in Nancy -->
-
   <div>
     <div ref="threeContainer" class="o-page__gl three-container"></div>
     <main>
@@ -367,14 +365,13 @@ export default {
   mounted() {
     this.initThreeScene();
     this.animate();
-    this.scrollSmooth();
+    // this.scrollSmooth();
   },
   beforeDestroy() {
     cancelAnimationFrame(this.animationFrameId);
     window.removeEventListener('resize', this.onWindowResize);
   },
   methods: {
-
 
     destroyMyTextAndMyImage() {
       if (this.$refs.myText) {
@@ -389,7 +386,6 @@ export default {
       const lenis = new Lenis()
 
       lenis.on('scroll', (e) => {
-        console.log(e)
       })
 
       function raf(time) {
@@ -663,14 +659,6 @@ export default {
       const sphere = new THREE.Mesh(geometry, material);
       this.scene.add(sphere);
 
-
-
-      // Cible pour la position z de la caméra
-      // const targetZ = 30;
-
-
-      // Variable pour suivre si l'animation est complète
-      // let isCameraAnimationComplete = false;
 
       //when the animation is complete, we rotate the sphere and the camera
       gsap.to(sphere.rotation, {
