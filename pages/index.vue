@@ -8,25 +8,22 @@
       </svg>
     </a>
 
-    <span class="menu">
-      menu
-    </span>
   </header>
 
-    <img ref="myImage" id="myImage" src="~/assets/artboard.png"
-      style="z-index: 1; position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); opacity: 0; width: 200px; height: 200px;">
-    <div ref="myText" id="myText"
-      style="z-index: 1; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white;">
-      <span class="letter">S</span>
-      <span class="letter">p</span>
-      <span class="letter">h</span>
-      <span class="letter">e</span>
-      <span class="letter">r</span>
-      <span class="letter">e</span>
-      <span class="letter">.</span>
-      <span class="letter">d</span>
-      <span class="letter">e</span>
-      <span class="letter">v</span>
+  <img ref="myImage" id="myImage" src="~/assets/artboard.png"
+    style="z-index: 1; position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); opacity: 0; width: 200px; height: 200px;">
+  <div ref="myText" id="myText"
+    style="z-index: 1; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white;">
+    <span class="letter">S</span>
+    <span class="letter">p</span>
+    <span class="letter">h</span>
+    <span class="letter">e</span>
+    <span class="letter">r</span>
+    <span class="letter">e</span>
+    <span class="letter">.</span>
+    <span class="letter">d</span>
+    <span class="letter">e</span>
+    <span class="letter">v</span>
   </div>
 
   <div>
@@ -36,10 +33,10 @@
         <div class="o-hero__center">
           <div class="center_text">
             <div class="o-hero__heading">
-              <h1 class="is-b is-in-view" ref="title">
+              <h1 id="mainHeading" class="is-b is-in-view" ref="title">
                 <span>Digital Agency,</span>
                 <br>
-                <span>Creative Studio</span>
+                <span>Creative</span>
                 <br>
                 <span>& Web Development,</span>
                 <br>
@@ -50,14 +47,50 @@
         </div>
       </section>
 
-      <section>
-        Digital Agency, <br> Creative Studio <br> & Web Development, <br> based in Nancy
+      <section class="o-projects">
+        <div class="center_text">
+          <h3 class="h1_prop" ref="contact">Contact Us</h3>
+          <!-- <p style="margin-bottom: 50%;">
+            if you want to work with us, or just say hello, don't hesitate to send us an email at contact@spheredev.studio
+            </p> -->
+        </div>
       </section>
+
     </main>
   </div>
+
+
 </template>
 
 <style>
+@media(max-width: 575px) {
+  .o-footer__talk {
+    padding-top: 5rem
+  }
+}
+
+.o-projects {
+  padding: 9.375rem 0 0
+}
+
+@media(max-width: 1280px) {
+  .o-projects {
+    padding-bottom: 9.375rem
+  }
+}
+
+@media(max-width: 767px) {
+  .o-projects {
+    padding: 6.25rem 0
+  }
+}
+
+@media(max-width: 575px) {
+  .o-projects {
+    padding: 4.375rem 0
+  }
+}
+
 .o-hero {
   display: table;
   height: 100vh;
@@ -107,14 +140,13 @@ main {
   height: 100%;
 } */
 
-
 .menu {
   position: absolute;
   height: 2.3125rem;
   width: 5.8125rem;
   right: 5.8125rem;
   top: 5.875rem;
-  display: none;
+  /* display: none; */
   text-transform: uppercase;
   font-weight: 700;
 }
@@ -276,11 +308,12 @@ section {
   }
 }
 
+.h1_prop,
 h1 {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   color: #fff;
-  font-size: 9.875rem;
+  font-size: 7.875rem;
   font-weight: 500;
   line-height: .95;
   margin: .9375rem 0 1.25rem;
@@ -288,10 +321,13 @@ h1 {
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
   -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d
+  transform-style: preserve-3d;
+  opacity: 0;
 }
 
 @media(max-width: 1280px) {
+
+  .h1-prop,
   h1 {
     font-size: 8rem;
     text-indent: -1.5px
@@ -299,12 +335,16 @@ h1 {
 }
 
 @media(max-width: 1023px) {
+
+  .h1-prop,
   h1 {
     font-size: 8rem
   }
 }
 
 @media(max-width: 767px) {
+
+  .h1-prop,
   h1 {
     font-size: 5.625rem;
     text-indent: -.125rem
@@ -312,30 +352,32 @@ h1 {
 }
 
 @media(max-width: 575px) {
+
+  .h1-prop,
   h1 {
     font-size: 3.75rem
   }
 }
 
 h1.is-b {
-  font-size: 12.5rem
+  font-size: 6.5rem
 }
 
 @media(max-width: 1780px) {
   h1.is-b {
-    font-size: 9.875rem
+    font-size: 5.875rem
   }
 }
 
 @media(max-width: 767px) {
   h1.is-b {
-    font-size: 5.625rem
+    font-size: 4.625rem
   }
 }
 
 @media(max-width: 575px) {
   h1.is-b {
-    font-size: 3.75rem
+    font-size: 2.75rem
   }
 }
 
@@ -343,6 +385,11 @@ h1.is-b {
   -webkit-transform: translateX(-105%);
   -ms-transform: translateX(-105%);
   transform: translateX(-105%)
+}
+
+h3 {
+  font-size: 4rem;
+  line-height: 1.2
 }
 </style>
   
@@ -360,18 +407,23 @@ export default {
     return {
       isCameraAnimationComplete: false,
       targetZ: 30,
+      isMenuOpen: false,
     };
   },
   mounted() {
     this.initThreeScene();
     this.animate();
-    // this.scrollSmooth();
+    this.scrollSmooth();
   },
   beforeDestroy() {
     cancelAnimationFrame(this.animationFrameId);
     window.removeEventListener('resize', this.onWindowResize);
   },
   methods: {
+
+    toggleMenu() {
+      this.isMenuOpen = !this.isMenuOpen;
+    },
 
     destroyMyTextAndMyImage() {
       if (this.$refs.myText) {
@@ -395,22 +447,39 @@ export default {
       requestAnimationFrame(raf)
     },
 
-    // animateH1() {
-    //   gsap.fromTo(
-    //     this.$refs.title,
-    //     {
-    //       y: 100,
-    //       opacity: 0
-    //     },
-    //     {
-    //       y: 0,
-    //       opacity: 1,
-    //       stagger: 0.05,
-    //       duration: 2,
-    //       ease: 'power4.out',
-    //     }
-    //   )
-    // },
+    animateH1() {
+      gsap.fromTo(
+        this.$refs.title,
+        {
+          y: 100,
+          opacity: 0
+        },
+        {
+          y: 0,
+          opacity: 1,
+          stagger: 0.05,
+          duration: 2,
+          ease: 'power4.out',
+        }
+      )
+    },
+
+    animateContact() {
+      gsap.fromTo(
+        this.$refs.contact,
+        {
+          y: 100,
+          opacity: 0
+        },
+        {
+          y: 0,
+          opacity: 1,
+          stagger: 0.05,
+          duration: 2,
+          ease: 'power4.out',
+        }
+      )
+    },
 
     displayHeader() {
       gsap.to(this.$refs.header, {
@@ -674,7 +743,8 @@ export default {
         z: 13,
         ease: "power2.inOut"
       }).then(() => {
-        // this.animateH1();
+        this.animateH1();
+        this.animateContact();
         // this.animateP();
         this.displayHeader();
         this.destroyMyTextAndMyImage();
