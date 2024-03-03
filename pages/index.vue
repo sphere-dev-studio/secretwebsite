@@ -392,7 +392,7 @@ h3 {
   line-height: 1.2
 }
 </style>
-  
+
 <script>
 import * as THREE from 'three';
 import Lenis from '@studio-freight/lenis'
@@ -413,6 +413,7 @@ export default {
   mounted() {
     this.initThreeScene();
     this.animate();
+    this.animateCameraPosition();
     this.scrollSmooth();
   },
   beforeDestroy() {
@@ -420,10 +421,6 @@ export default {
     window.removeEventListener('resize', this.onWindowResize);
   },
   methods: {
-
-    toggleMenu() {
-      this.isMenuOpen = !this.isMenuOpen;
-    },
 
     destroyMyTextAndMyImage() {
       if (this.$refs.myText) {
@@ -782,7 +779,6 @@ export default {
         onComplete: fadeOutImage
       });
 
-
       function fadeOutImage() {
         gsap.to("#myImage", {
           duration: 0.5,
@@ -813,7 +809,6 @@ export default {
     animate() {
       this.animationFrameId = requestAnimationFrame(this.animate);
       this.uniforms.uTime.value += 0.01;
-      this.animateCameraPosition();
       this.composer.render();
     },
   },
