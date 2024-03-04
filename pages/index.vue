@@ -1,4 +1,8 @@
 <template>
+
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
   <header style="z-index: 1;" ref="header" class="header_">
     <a class="sphere-dev" href="/">
       <svg viewBox="0 0 450 310" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -40,7 +44,7 @@
                 <br>
                 <span>& Web Development,</span>
                 <br>
-                <span>based in Nancy</span>
+                <span>based in France</span>
               </h1>
             </div>
           </div>
@@ -63,12 +67,6 @@
 </template>
 
 <style>
-@media(max-width: 575px) {
-  .o-footer__talk {
-    padding-top: 5rem
-  }
-}
-
 .o-projects {
   padding: 9.375rem 0 0
 }
@@ -124,7 +122,6 @@ main {
   max-width: 100%;
   position: fixed;
   top: 0;
-  -ms-touch-action: none;
   touch-action: none
 }
 
@@ -286,6 +283,13 @@ body {
   width: 100%
 }
 
+@media(hover: none) {
+  body {
+    height: auto;
+    overflow: visible
+  }
+}
+
 footer,
 header,
 main,
@@ -313,7 +317,10 @@ h1 {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   color: #fff;
-  font-size: 7.875rem;
+  /* font-size: 7.875rem; */
+
+  font-size: clamp(3.75rem, 5.625rem, 8rem);
+
   font-weight: 500;
   line-height: .95;
   margin: .9375rem 0 1.25rem;
@@ -327,7 +334,7 @@ h1 {
 
 @media(max-width: 1280px) {
 
-  .h1-prop,
+  .h1_prop,
   h1 {
     font-size: 8rem;
     text-indent: -1.5px
@@ -336,7 +343,7 @@ h1 {
 
 @media(max-width: 1023px) {
 
-  .h1-prop,
+  .h1_prop,
   h1 {
     font-size: 8rem
   }
@@ -344,7 +351,7 @@ h1 {
 
 @media(max-width: 767px) {
 
-  .h1-prop,
+  .h1_prop,
   h1 {
     font-size: 5.625rem;
     text-indent: -.125rem
@@ -353,7 +360,7 @@ h1 {
 
 @media(max-width: 575px) {
 
-  .h1-prop,
+  .h1_prop,
   h1 {
     font-size: 3.75rem
   }
@@ -387,10 +394,10 @@ h1.is-b {
   transform: translateX(-105%)
 }
 
-h3 {
+/* h3 {
   font-size: 4rem;
   line-height: 1.2
-}
+} */
 </style>
 
 <script>
@@ -401,6 +408,8 @@ import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
 import { FilmPass } from 'three/examples/jsm/postprocessing/FilmPass.js';
 import { gsap } from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+import Stats from 'stats.js';
 
 export default {
   data() {
@@ -408,10 +417,17 @@ export default {
       isCameraAnimationComplete: false,
       targetZ: 30,
       isMenuOpen: false,
+      lastTime: 0,
+      stats: null,
+      scrollingEnabled: false,
     };
   },
   mounted() {
     this.initThreeScene();
+    this.animate = this.animate.bind(this);
+    // this.stats = new Stats(); // Utilisez this pour référencer la propriété de l'instance
+    // this.stats.showPanel(1); // 0: fps, 1: ms, 2: mb, 3+: custom
+    // document.body.appendChild(this.stats.dom);
     this.animate();
     this.animateCameraPosition();
     this.scrollSmooth();
@@ -432,16 +448,38 @@ export default {
     },
 
     scrollSmooth() {
-      const lenis = new Lenis()
+
+      const lenis = new Lenis(
+        {
+          lerp: 0.05,
+        }
+      )
 
       lenis.on('scroll', (e) => {
       })
 
-      function raf(time) {
-        lenis.raf(time)
-        requestAnimationFrame(raf)
-      }
-      requestAnimationFrame(raf)
+      lenis.on('scroll', ScrollTrigger.update)
+
+      gsap.ticker.add((time) => {
+        lenis.raf(time * 1000)
+      })
+
+      gsap.ticker.lagSmoothing(0)
+
+      // const lenis = new Lenis(
+      //   {
+      //     lerp: 0.05,
+      //   }
+      // )
+
+      // lenis.on('scroll', (e) => {
+      // })
+
+      // function raf(time) {
+      //   lenis.raf(time)
+      //   requestAnimationFrame(raf)
+      // }
+      // requestAnimationFrame(raf)
     },
 
     animateH1() {
@@ -485,7 +523,6 @@ export default {
         ease: "power2.inOut",
       });
     },
-
 
     initThreeScene() {
       this.scene = new THREE.Scene();
@@ -715,16 +752,8 @@ export default {
       const filmPass = new FilmPass(0.1, 0.025, 648, false);
       this.composer.addPass(filmPass);
 
-
-      const directionalLight = new THREE.DirectionalLight('#ffffff', 3)
-      const ambientLight = new THREE.AmbientLight('#ffffff', 1)
-      directionalLight.position.set(10, 10, 10)
-      this.scene.add(ambientLight)
-      this.scene.add(directionalLight)
-
       const sphere = new THREE.Mesh(geometry, material);
       this.scene.add(sphere);
-
 
       //when the animation is complete, we rotate the sphere and the camera
       gsap.to(sphere.rotation, {
@@ -742,7 +771,6 @@ export default {
       }).then(() => {
         this.animateH1();
         this.animateContact();
-        // this.animateP();
         this.displayHeader();
         this.destroyMyTextAndMyImage();
       });
@@ -806,11 +834,29 @@ export default {
       }
     },
 
-    animate() {
-      this.animationFrameId = requestAnimationFrame(this.animate);
-      this.uniforms.uTime.value += 0.01;
+    animate(time) {
+
+      // this.stats.begin();
+
+      // Calculez le delta de temps (en secondes)
+      const deltaTime = this.lastTime ? (time - this.lastTime) / 1000 : 0;
+
+      // Mettez à jour lastTime pour la prochaine frame
+      this.lastTime = time;
+
+      // Utilisez deltaTime pour ajuster la vitesse de l'animation
+      // Assurez-vous de multiplier les valeurs qui étaient incrémentées de manière fixe par deltaTime
+      // Ajustez le coefficient (ici 0.01) en fonction de la vitesse d'animation souhaitée
+      this.uniforms.uTime.value += 0.6 * deltaTime;
+
+      // Effectuez le rendu
       this.composer.render();
+
+
+      requestAnimationFrame(this.animate);
+      // this.stats.end();
     },
+
   },
 }
 </script>
