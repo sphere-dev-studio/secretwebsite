@@ -9,18 +9,13 @@
       </svg>
     </a>
 
-    <!-- <div class="navbar">
-      <a href="/about" class="menu">About</a>
-      <a href="/services" class="menu">Services</a>
-      <a href="/contact" class="menu">Contact</a>
-    </div> -->
-
   </header>
+
   <img ref="myImage" id="myImage" src="~/assets/artboard.png"
     style="z-index: 1; position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); opacity: 0; width: 200px; height: 200px;">
   <div ref="myText" id="myText"
     style="z-index: 1; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white;">
-    <span class="letter">S</span>
+    <span class="letter">s</span>
     <span class="letter">p</span>
     <span class="letter">h</span>
     <span class="letter">e</span>
@@ -53,15 +48,45 @@
         </div>
       </section>
 
-      <section class="project">
+      <section ref="section1" class="project" style="margin-bottom: 35%; opacity: 0;">
         <div class="center_text">
-          <h3 class="h1_" ref="contact">About Us</h3>
-          <p style="margin-right: 50%; margin-top: 5%; margin-bottom: 10%;">
+          <h3 class="h3_section" style="margin-bottom: 50px" ref="services">Services</h3>
+          <div class="top-line"></div>
+          <h3 class="h3_section_service">Web Development</h3>
+          <p class="p_section_service"> Framer,
+            Webflow, React, Vue.js, Angular.
+            (Three.js coming Q4 2024)<br>
+            If you want to work with an other framework, we can adapt to your needs.
+          </p>
+          <div class="bottom-line"></div>
+          <h3 class="h3_section_service" style="display: inline-block;">E-Commerce</h3>
+          <p class="p_section_service">
+            You want to create an e-commerce website? We can help you to create your online store.
+            We can work with Shopify or an other e-commerce platform.
+          </p>
+          <div class="bottom-line"></div>
+          <h3 class="h3_section_service" style="display: inline-block;">Back-end</h3>
+          <p class="p_section_service ">
+            Go (Golang), Adonis.js, Node.js, Express.js.
+          </p>
+          <div class="bottom-line"></div>
+          <h3 class="h3_section_service" style="display: inline-block;">DevOps</h3>
+          <p class="p_section_service">
+            DevOps are coming for Q4 2024.
+            Our service will include consulting, CI/CD and monitoring.
+          </p>
+          <div class="bottom-line"></div>
+        </div>
+      </section>
+
+      <section ref="section2" class="project" style="opacity: 0;">
+        <div class="center_text">
+          <h3 class="h3_section" ref="aboutUs">About Us</h3>
+          <p class="p_section_about" ref="p_about">
             We are a digital agency based in France. We are specialized in web development.
             We are a team of passionate and creative people who love to create amazing
             things. We are here to help you to grow your business and to make your dreams come true.
           </p>
-
           <div class="team-members" style="margin-bottom: 30%;">
             <div class="team-member">
               <img class="profile-pic" src="~/assets/gillyan.jpeg" alt="Gillyan">
@@ -80,18 +105,46 @@
               </a>
             </div>
           </div>
-
         </div>
       </section>
-
-
     </main>
   </div>
-
-
 </template>
 
 <style>
+.p_section_about {
+  margin-right: 50%;
+  margin-top: 5%;
+  margin-bottom: 10%;
+  opacity: 0;
+}
+
+.p_section_service {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+@media (max-width: 1024px) {
+  .p_section_service {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 575px) {
+  .p_section_service {
+    margin-left: 0;
+  }
+}
+
+.top-line,
+.bottom-line {
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 .team-members {
   display: flex;
   flex-wrap: wrap;
@@ -132,19 +185,6 @@
   width: 50px;
   height: 50px;
 }
-
-/* .fa-linkedin:hover {
-  color: #005792;
-} */
-
-/* .profile-pic {
-  border-radius: 50%;
-  width: 150px;
-  height: 150px;
-  margin: 0 auto;
-  max-width: 146.75rem;
-  padding: 0 13.75rem
-} */
 
 .project {
   padding: 9.375rem 0 0
@@ -209,20 +249,11 @@ main {
   grid-row-gap: 30px;
   align-items: center;
   display: flex;
-  /* position: absolute; */
-  /* height: 2.3125rem;
-  width: 5.8125rem;
-  right: 5.8125rem;
-  top: 5.875rem; */
-  /* display: none; */
-  /* text-transform: uppercase;
-  font-weight: 700; */
 }
 
 @media (max-width: 1024px) {
   .menu {
     display: block;
-    /* Le menu s'affiche sur les petits écrans */
   }
 }
 
@@ -435,6 +466,70 @@ h1 {
   }
 }
 
+.h3_section_service {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  color: #fff;
+  /* font-size: 7.875rem; */
+  font-size: clamp(1.75rem, 2.625rem, 8rem);
+  font-weight: 500;
+  line-height: .95;
+  margin: .9375rem 0 1.25rem;
+  text-indent: -.3125rem;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  opacity: 1;
+}
+
+.h3_section {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  color: #fff;
+  /* font-size: 7.875rem; */
+  font-size: clamp(3.75rem, 5.625rem, 8rem);
+  font-weight: 500;
+  line-height: .95;
+  margin: .9375rem 0 1.25rem;
+  text-indent: -.3125rem;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  opacity: 0;
+}
+
+@media(max-width: 1280px) {
+
+  .h3_section {
+    font-size: 8rem;
+    text-indent: -1.5px
+  }
+}
+
+@media(max-width: 1023px) {
+
+  .h3_section {
+    font-size: 8rem
+  }
+}
+
+@media(max-width: 767px) {
+
+  .h3_section {
+    font-size: 5.625rem;
+    text-indent: -.125rem
+  }
+}
+
+@media(max-width: 575px) {
+
+  .h3_section {
+    font-size: 3.75rem
+  }
+}
+
 h1.is-mob {
   font-size: 6.5rem
 }
@@ -462,17 +557,11 @@ h1.is-mob {
   -ms-transform: translateX(-105%);
   transform: translateX(-105%)
 }
-
-/* h3 {
-  font-size: 4rem;
-  line-height: 1.2
-} */
 </style>
 
 <script>
 import * as THREE from 'three';
 import Lenis from '@studio-freight/lenis'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
 import { FilmPass } from 'three/examples/jsm/postprocessing/FilmPass.js';
@@ -491,6 +580,7 @@ export default {
     };
   },
   mounted() {
+    gsap.registerPlugin(ScrollTrigger);
     this.initThreeScene();
     this.animate = this.animate.bind(this);
     this.animate();
@@ -504,6 +594,96 @@ export default {
   },
   methods: {
 
+    displaySection1() {
+      gsap.to(this.$refs.section1, {
+        duration: 1.5,
+        opacity: 1,
+        ease: "power2.inOut",
+      });
+    },
+
+    displaySection2() {
+      gsap.to(this.$refs.section2, {
+        duration: 1.5,
+        opacity: 1,
+        ease: "power2.inOut",
+      });
+    },
+
+    animateSectionService() {
+      const aboutUs = this.$refs.aboutUs;
+      const services = this.$refs.services;
+      const p_about = this.$refs.p_about;
+
+      ScrollTrigger.create({
+        trigger: aboutUs,
+        start: "top bottom",
+        end: "bottom top",
+        onEnter: () => {
+          aboutUs.style.opacity = 1;
+          p_about.style.opacity = 1;
+          gsap.fromTo(
+            aboutUs,
+            {
+              y: 100,
+              opacity: 0
+            },
+            {
+              y: 0,
+              opacity: 1,
+              stagger: 0.1,
+              duration: 4,
+              ease: 'power4.out',
+            }
+          )
+          gsap.fromTo(
+            p_about,
+            {
+              y: 100,
+              opacity: 0
+            },
+            {
+              y: 0,
+              opacity: 1,
+              stagger: 0.1,
+              duration: 4,
+              ease: 'power4.out',
+            }
+          )
+        },
+        onLeaveBack: () => {
+          aboutUs.style.opacity = 0;
+          p_about.style.opacity = 0;
+        }
+      });
+
+      ScrollTrigger.create({
+        trigger: services,
+        start: "top bottom",
+        end: "bottom top",
+        onEnter: () => {
+          services.style.opacity = 1;
+          gsap.fromTo(
+            services,
+            {
+              y: 100,
+              opacity: 0
+            },
+            {
+              y: 0,
+              opacity: 1,
+              stagger: 0.1,
+              duration: 4,
+              ease: 'power4.out',
+            }
+          )
+        },
+        onLeaveBack: () => {
+          services.style.opacity = 0;
+        }
+      });
+    },
+
     destroyMyTextAndMyImage() {
       if (this.$refs.myText) {
         this.$refs.myText.remove();
@@ -516,22 +696,21 @@ export default {
     onScroll() {
       this.scrollPosition = window.scrollY;
       this.camera.position.z = this.calculateCameraZ(this.scrollPosition);
-      // this.camera.position.x = this.calculateCameraX(this.scrollPosition);
+      this.camera.position.x = this.calculateCameraX(this.scrollPosition);
     },
 
     calculateCameraX(scrollY) {
-      const xRange = -10;
+      const xRange = -5;
       const scrollRatio = scrollY / window.innerHeight;
       return xRange * scrollRatio;
     },
 
 
     calculateCameraZ(scrollY) {
-      const zRange = this.targetZ - this.cameraTarget;
-
+      const zRange = 10;
       const scrollRatio = scrollY / window.innerHeight;
-      return this.cameraTarget + (zRange * scrollRatio);
 
+      return this.cameraTarget + (zRange * scrollRatio);
     },
 
     scrollSmooth() {
@@ -543,6 +722,7 @@ export default {
           gestureOrientation: 'vertical',
           smoothWheel: true,
           syncTouch: true,
+          syncTouchLerp: 0.05,
         }
       )
 
@@ -556,12 +736,6 @@ export default {
       })
 
       gsap.ticker.lagSmoothing(0)
-
-      // function raf(time) {
-      //   this.lenis.raf(time)
-      //   requestAnimationFrame(raf)
-      // }
-      // requestAnimationFrame(raf)
     },
 
     animateH1() {
@@ -579,6 +753,9 @@ export default {
           ease: 'power4.out',
           onComplete: () => {
             this.scrollSmooth();
+            this.animateSectionService();
+            this.displaySection1();
+            this.displaySection2();
             window.addEventListener('scroll', this.onScroll);
           }
         }
@@ -856,7 +1033,7 @@ export default {
         ease: "power2.inOut"
       }).then(() => {
         this.animateH1();
-        this.animateContact();
+        // this.animateContact();
         this.displayHeader();
         this.destroyMyTextAndMyImage();
       });
@@ -927,9 +1104,6 @@ export default {
       this.lastTime = time;
 
       this.uniforms.uTime.value += 0.6 * deltaTime;
-
-      //rotate the sphere around the y axis
-      // this.scene.rotation.y += 0.1 * deltaTime;
 
       this.composer.render();
 
