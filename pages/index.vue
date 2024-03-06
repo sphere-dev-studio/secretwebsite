@@ -1,8 +1,5 @@
 <template>
 
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
   <header style="z-index: 1;" ref="header" class="header_">
     <a class="sphere-dev" href="/">
       <svg viewBox="0 0 450 310" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -12,8 +9,13 @@
       </svg>
     </a>
 
-  </header>
+    <!-- <div class="navbar">
+      <a href="/about" class="menu">About</a>
+      <a href="/services" class="menu">Services</a>
+      <a href="/contact" class="menu">Contact</a>
+    </div> -->
 
+  </header>
   <img ref="myImage" id="myImage" src="~/assets/artboard.png"
     style="z-index: 1; position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); opacity: 0; width: 200px; height: 200px;">
   <div ref="myText" id="myText"
@@ -31,13 +33,13 @@
   </div>
 
   <div>
-    <div ref="threeContainer" class="o-page__gl three-container"></div>
+    <div ref="threeContainer" class="threeCanv three-container"></div>
     <main>
-      <section class="o-hero">
-        <div class="o-hero__center">
+      <section class="first_section">
+        <div class="first_section_center">
           <div class="center_text">
-            <div class="o-hero__heading">
-              <h1 id="mainHeading" class="is-b is-in-view" ref="title">
+            <div class="first_section_heading">
+              <h1 id="mainHeading" class="is-mob can-view" ref="title">
                 <span>Digital Agency,</span>
                 <br>
                 <span>Creative</span>
@@ -51,14 +53,37 @@
         </div>
       </section>
 
-      <section class="o-projects">
+      <section class="project">
         <div class="center_text">
-          <h3 class="h1_prop" ref="contact">Contact Us</h3>
-          <!-- <p style="margin-bottom: 50%;">
-            if you want to work with us, or just say hello, don't hesitate to send us an email at contact@spheredev.studio
-            </p> -->
+          <h3 class="h1_" ref="contact">About Us</h3>
+          <p style="margin-right: 50%; margin-top: 5%; margin-bottom: 10%;">
+            We are a digital agency based in France. We are specialized in web development.
+            We are a team of passionate and creative people who love to create amazing
+            things. We are here to help you to grow your business and to make your dreams come true.
+          </p>
+
+          <div class="team-members" style="margin-bottom: 30%;">
+            <div class="team-member">
+              <img class="profile-pic" src="~/assets/gillyan.jpeg" alt="Gillyan">
+              <p class="member-name">Gillyan Como</p>
+              <p>Founder</p>
+              <a href="https://www.linkedin.com/in/gillyancomo/" target="_blank">
+                <img class="fa fa-linkedin" src="~/assets/linkedin.webp">
+              </a>
+            </div>
+            <div class="team-member">
+              <img class="profile-pic" src="~/assets/pauline.jpeg" alt="Pauline">
+              <p class="member-name">Pauline Neumann</p>
+              <p>Co-Founder</p>
+              <a href="https://www.linkedin.com/in/pauline-neumann-842098176/" target="_blank">
+                <img class="fa fa-linkedin" src="~/assets/linkedin.webp">
+              </a>
+            </div>
+          </div>
+
         </div>
       </section>
+
 
     </main>
   </div>
@@ -67,42 +92,96 @@
 </template>
 
 <style>
-.o-projects {
+.team-members {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 50px;
+  gap: 30%;
+
+}
+
+.team-member {
+  margin: 0;
+  text-align: center;
+}
+
+@media (max-width: 575px) {
+  .team-member {
+    margin: 20px;
+    text-align: center;
+  }
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.member-name {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.fa-linkedin {
+  font-size: 24px;
+  margin-top: 10px;
+  width: 50px;
+  height: 50px;
+}
+
+/* .fa-linkedin:hover {
+  color: #005792;
+} */
+
+/* .profile-pic {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  max-width: 146.75rem;
+  padding: 0 13.75rem
+} */
+
+.project {
   padding: 9.375rem 0 0
 }
 
 @media(max-width: 1280px) {
-  .o-projects {
+  .project {
     padding-bottom: 9.375rem
   }
 }
 
 @media(max-width: 767px) {
-  .o-projects {
+  .project {
     padding: 6.25rem 0
   }
 }
 
 @media(max-width: 575px) {
-  .o-projects {
+  .project {
     padding: 4.375rem 0
   }
 }
 
-.o-hero {
+.first_section {
   display: table;
   height: 100vh;
   position: relative;
   width: 100%;
 }
 
-.o-hero__center {
+.first_section_center {
   display: table-cell;
   vertical-align: middle;
 
 }
 
-.o-hero__heading {
+.first_section_heading {
   position: relative;
 }
 
@@ -111,11 +190,11 @@ main {
   width: 100%;
 }
 
-.o-page__gl {
+.threeCanv {
   pointer-events: none
 }
 
-.o-page__gl canvas {
+.threeCanv canvas {
   contain: layout style size;
   left: 0;
   max-height: 100%;
@@ -125,27 +204,19 @@ main {
   touch-action: none
 }
 
-.three-container {
-  z-index: -1;
-}
-
-/* .three-container canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-} */
-
 .menu {
-  position: absolute;
-  height: 2.3125rem;
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+  align-items: center;
+  display: flex;
+  /* position: absolute; */
+  /* height: 2.3125rem;
   width: 5.8125rem;
   right: 5.8125rem;
-  top: 5.875rem;
+  top: 5.875rem; */
   /* display: none; */
-  text-transform: uppercase;
-  font-weight: 700;
+  /* text-transform: uppercase;
+  font-weight: 700; */
 }
 
 @media (max-width: 1024px) {
@@ -312,15 +383,13 @@ section {
   }
 }
 
-.h1_prop,
+.h1_,
 h1 {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   color: #fff;
   /* font-size: 7.875rem; */
-
   font-size: clamp(3.75rem, 5.625rem, 8rem);
-
   font-weight: 500;
   line-height: .95;
   margin: .9375rem 0 1.25rem;
@@ -334,7 +403,7 @@ h1 {
 
 @media(max-width: 1280px) {
 
-  .h1_prop,
+  .h1_,
   h1 {
     font-size: 8rem;
     text-indent: -1.5px
@@ -343,7 +412,7 @@ h1 {
 
 @media(max-width: 1023px) {
 
-  .h1_prop,
+  .h1_,
   h1 {
     font-size: 8rem
   }
@@ -351,7 +420,7 @@ h1 {
 
 @media(max-width: 767px) {
 
-  .h1_prop,
+  .h1_,
   h1 {
     font-size: 5.625rem;
     text-indent: -.125rem
@@ -360,35 +429,35 @@ h1 {
 
 @media(max-width: 575px) {
 
-  .h1_prop,
+  .h1_,
   h1 {
     font-size: 3.75rem
   }
 }
 
-h1.is-b {
+h1.is-mob {
   font-size: 6.5rem
 }
 
 @media(max-width: 1780px) {
-  h1.is-b {
+  h1.is-mob {
     font-size: 5.875rem
   }
 }
 
 @media(max-width: 767px) {
-  h1.is-b {
+  h1.is-mob {
     font-size: 4.625rem
   }
 }
 
 @media(max-width: 575px) {
-  h1.is-b {
+  h1.is-mob {
     font-size: 2.75rem
   }
 }
 
-.h1.is-in-view {
+.h1.can-view {
   -webkit-transform: translateX(-105%);
   -ms-transform: translateX(-105%);
   transform: translateX(-105%)
@@ -409,32 +478,29 @@ import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
 import { FilmPass } from 'three/examples/jsm/postprocessing/FilmPass.js';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import Stats from 'stats.js';
 
 export default {
   data() {
     return {
       isCameraAnimationComplete: false,
       targetZ: 30,
+      cameraTarget: 13,
       isMenuOpen: false,
       lastTime: 0,
-      stats: null,
-      scrollingEnabled: false,
+      lenis: null,
     };
   },
   mounted() {
     this.initThreeScene();
     this.animate = this.animate.bind(this);
-    // this.stats = new Stats(); // Utilisez this pour référencer la propriété de l'instance
-    // this.stats.showPanel(1); // 0: fps, 1: ms, 2: mb, 3+: custom
-    // document.body.appendChild(this.stats.dom);
     this.animate();
     this.animateCameraPosition();
-    this.scrollSmooth();
   },
   beforeDestroy() {
     cancelAnimationFrame(this.animationFrameId);
+    this.lenis.destroy();
     window.removeEventListener('resize', this.onWindowResize);
+    window.removeEventListener('scroll', this.onScroll);
   },
   methods: {
 
@@ -447,36 +513,52 @@ export default {
       }
     },
 
-    scrollSmooth() {
+    onScroll() {
+      this.scrollPosition = window.scrollY;
+      this.camera.position.z = this.calculateCameraZ(this.scrollPosition);
+      // this.camera.position.x = this.calculateCameraX(this.scrollPosition);
+    },
 
-      const lenis = new Lenis(
+    calculateCameraX(scrollY) {
+      const xRange = -10;
+      const scrollRatio = scrollY / window.innerHeight;
+      return xRange * scrollRatio;
+    },
+
+
+    calculateCameraZ(scrollY) {
+      const zRange = this.targetZ - this.cameraTarget;
+
+      const scrollRatio = scrollY / window.innerHeight;
+      return this.cameraTarget + (zRange * scrollRatio);
+
+    },
+
+    scrollSmooth() {
+      this.lenis = new Lenis(
         {
           lerp: 0.05,
+          duration: 1.2,
+          orientation: 'vertical',
+          gestureOrientation: 'vertical',
+          smoothWheel: true,
+          syncTouch: true,
         }
       )
 
-      lenis.on('scroll', (e) => {
+      this.lenis.on('scroll', (e) => {
       })
 
-      lenis.on('scroll', ScrollTrigger.update)
+      this.lenis.on('scroll', ScrollTrigger.update)
 
       gsap.ticker.add((time) => {
-        lenis.raf(time * 1000)
+        this.lenis.raf(time * 1000)
       })
 
       gsap.ticker.lagSmoothing(0)
 
-      // const lenis = new Lenis(
-      //   {
-      //     lerp: 0.05,
-      //   }
-      // )
-
-      // lenis.on('scroll', (e) => {
-      // })
-
       // function raf(time) {
-      //   lenis.raf(time)
+      //   this.lenis.raf(time)
       //   requestAnimationFrame(raf)
       // }
       // requestAnimationFrame(raf)
@@ -495,6 +577,10 @@ export default {
           stagger: 0.05,
           duration: 2,
           ease: 'power4.out',
+          onComplete: () => {
+            this.scrollSmooth();
+            window.addEventListener('scroll', this.onScroll);
+          }
         }
       )
     },
@@ -766,7 +852,7 @@ export default {
       gsap.to(this.camera.position, {
         delay: 5,
         duration: 3,
-        z: 13,
+        z: this.cameraTarget,
         ease: "power2.inOut"
       }).then(() => {
         this.animateH1();
@@ -822,7 +908,7 @@ export default {
     animateCameraPosition() {
       if (!this.isCameraAnimationComplete) {
         gsap.to(this.camera.position, {
-          z: this.targetZ,
+          z: 30,
           duration: 2,
           ease: "power2.out",
           onUpdate: () => {
@@ -836,25 +922,18 @@ export default {
 
     animate(time) {
 
-      // this.stats.begin();
-
-      // Calculez le delta de temps (en secondes)
       const deltaTime = this.lastTime ? (time - this.lastTime) / 1000 : 0;
 
-      // Mettez à jour lastTime pour la prochaine frame
       this.lastTime = time;
 
-      // Utilisez deltaTime pour ajuster la vitesse de l'animation
-      // Assurez-vous de multiplier les valeurs qui étaient incrémentées de manière fixe par deltaTime
-      // Ajustez le coefficient (ici 0.01) en fonction de la vitesse d'animation souhaitée
       this.uniforms.uTime.value += 0.6 * deltaTime;
 
-      // Effectuez le rendu
+      //rotate the sphere around the y axis
+      // this.scene.rotation.y += 0.1 * deltaTime;
+
       this.composer.render();
 
-
       requestAnimationFrame(this.animate);
-      // this.stats.end();
     },
 
   },
