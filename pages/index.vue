@@ -9,6 +9,12 @@
       </svg>
     </a>
 
+    <span class="menu">
+    <NuxtLink to="/contact">
+      Contact
+    </NuxtLink>  
+    </span>
+
   </header>
 
   <img ref="myImage" id="myImage" src="~/assets/artboard.png"
@@ -83,11 +89,11 @@
         <div class="center_text">
           <h3 class="h3_section" ref="aboutUs">About Us</h3>
           <p class="p_section_about" ref="p_about">
-            We are a digital agency based in France. We are specialized in web development.
-            We are a team of passionate and creative people who love to create amazing
-            things. We are here to help you to grow your business and to make your dreams come true.
+            We are two developers who are passionate about web development.
+            Our goal is to make difference in the web development industry. We want to create a new way to develop.
+            Honnesty and transparency are our values.
           </p>
-          <div class="team-members" style="margin-bottom: 30%;">
+          <div class="team-members" style="margin-bottom: 10%;">
             <div class="team-member">
               <img class="profile-pic" src="~/assets/gillyan.jpeg" alt="Gillyan">
               <p class="member-name">Gillyan Como</p>
@@ -117,6 +123,12 @@
   margin-top: 5%;
   margin-bottom: 10%;
   opacity: 0;
+}
+
+@media (max-width: 1024px) {
+  .p_section_about {
+    margin-right: 0;
+  }
 }
 
 .p_section_service {
@@ -245,10 +257,10 @@ main {
 }
 
 .menu {
-  grid-column-gap: 30px;
-  grid-row-gap: 30px;
-  align-items: center;
-  display: flex;
+  font-weight: 500;
+  position: absolute;
+  right: 5.8125rem;
+  top: 5.5rem;
 }
 
 @media (max-width: 1024px) {
@@ -259,7 +271,7 @@ main {
 
 @media (max-width: 575px) {
   .menu {
-    right: 0.1rem;
+    right: 1.25rem;
     top: 1.8rem;
   }
 }
@@ -696,18 +708,19 @@ export default {
     onScroll() {
       this.scrollPosition = window.scrollY;
       this.camera.position.z = this.calculateCameraZ(this.scrollPosition);
-      this.camera.position.x = this.calculateCameraX(this.scrollPosition);
+      // this.camera.position.x = this.calculateCameraX(this.scrollPosition);
     },
 
     calculateCameraX(scrollY) {
       const xRange = -5;
+
       const scrollRatio = scrollY / window.innerHeight;
       return xRange * scrollRatio;
     },
 
 
     calculateCameraZ(scrollY) {
-      const zRange = 10;
+      const zRange = 5;
       const scrollRatio = scrollY / window.innerHeight;
 
       return this.cameraTarget + (zRange * scrollRatio);
@@ -968,9 +981,13 @@ export default {
   uniform vec3 color2;
   uniform vec3 color3;
   
+  // vec3 cosPalette(float t, vec3 a, vec3 b, vec3 c, vec3 d) {
+  //   return a + b * cos(6.28318 * (c * t + d));
+  // }   
+
   vec3 cosPalette(float t, vec3 a, vec3 b, vec3 c, vec3 d) {
-    return a + b * cos(6.28318 * (c * t + d));
-  }   
+  return a + vec3(b.x * 1.2, b.y, b.z) * cos(6.28318 * (c * t + d));
+}
   
   void main() {
     float distort = vDistort * 2.0;
@@ -1002,12 +1019,16 @@ export default {
         this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       });
 
-      // Continuer l'initialisation comme avant...
       const material = new THREE.ShaderMaterial({
         vertexShader: vertexShader,
         fragmentShader: fragmentShader,
         uniforms: this.uniforms,
       });
+
+      //add light
+      const light = new THREE.DirectionalLight(0xffffff, 1);
+      light.position.set(0, 0, 1);
+      this.scene.add(light);
 
       this.composer = new EffectComposer(this.renderer);
       this.composer.addPass(new RenderPass(this.scene, this.camera));
@@ -1018,7 +1039,6 @@ export default {
       const sphere = new THREE.Mesh(geometry, material);
       this.scene.add(sphere);
 
-      //when the animation is complete, we rotate the sphere and the camera
       gsap.to(sphere.rotation, {
         delay: 3,
         duration: 4,
@@ -1104,6 +1124,9 @@ export default {
       this.lastTime = time;
 
       this.uniforms.uTime.value += 0.6 * deltaTime;
+
+      //on fait tourner la sphere sur elle-même
+      // this.scene.rotation.x += 0.1 * deltaTime;
 
       this.composer.render();
 
