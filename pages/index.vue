@@ -102,7 +102,7 @@
             <p class="p_section_about" ref="p_about">
               We are two developers who are passionate about web development.
               Our goal is to make difference in this industry. We want to create a new way to develop.
-              Honnesty and transparency are our values.
+              Honesty and transparency are our values.
             </p>
             <div class="team-members" style="margin-bottom: 10%;">
               <div class="team-member">
