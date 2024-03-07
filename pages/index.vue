@@ -10,9 +10,9 @@
     </a>
 
     <span class="menu">
-    <NuxtLink to="/contact">
-      Contact
-    </NuxtLink>  
+      <NuxtLink to="/contact">
+        Contact
+      </NuxtLink>
     </span>
 
   </header>
@@ -35,94 +35,108 @@
 
   <div>
     <div ref="threeContainer" class="threeCanv three-container"></div>
-    <main>
-      <section class="first_section">
-        <div class="first_section_center">
+    <main ref="main_app">
+      <div ref="section_all">
+        <section class="first_section">
+          <div class="first_section_center">
+            <div class="center_text">
+              <div class="first_section_heading">
+                <h1 id="mainHeading" class="is-mob can-view" ref="title">
+                  <span>Digital Agency,</span>
+                  <br>
+                  <span>Creative</span>
+                  <br>
+                  <span>& Web Development,</span>
+                  <br>
+                  <span>based in France</span>
+                </h1>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="project" style="margin-bottom: 20%;">
           <div class="center_text">
-            <div class="first_section_heading">
-              <h1 id="mainHeading" class="is-mob can-view" ref="title">
-                <span>Digital Agency,</span>
+            <h3 class="h3_section" style="margin-bottom: 50px" ref="services">Services</h3>
+            <div style="opacity: 0;" ref="web_dev">
+              <div class="top-line"></div>
+              <h3 class="h3_section_service">Web Development</h3>
+              <p class="p_section_service"> Framer,
+                Webflow, React, Vue.js, Angular.
+                (Three.js coming Q4 2024)<br>
+                If you want to work with an other framework, we can adapt to your needs.
+              </p>
+              <div class="bottom-line"></div>
+            </div>
+            <div ref="e_comm" style="opacity: 0;">
+              <h3 class="h3_section_service" style="display: inline-block;">E-Commerce</h3>
+              <p class="p_section_service">
+                You want to create an e-commerce website? We can help you to create your online store.
+                We can work with Shopify or an other e-commerce platform.
+              </p>
+              <div class="bottom-line"></div>
+            </div>
+            <div ref="back_end" style="opacity: 0;">
+              <h3 class="h3_section_service" style="display: inline-block;">Back-end</h3>
+              <p class="p_section_service ">
+                Go (Golang), Adonis.js, Node.js, Express.js.
                 <br>
-                <span>Creative</span>
-                <br>
-                <span>& Web Development,</span>
-                <br>
-                <span>based in France</span>
-              </h1>
+                If you want to work with an other framework, we can adapt to your needs.
+              </p>
+              <div class="bottom-line"></div>
+            </div>
+            <div ref="devops" style="opacity: 0;">
+              <h3 class="h3_section_service" style="display: inline-block;">DevOps</h3>
+              <p class="p_section_service">
+                DevOps are coming for Q4 2024.
+                Our service will include consulting, CI/CD and monitoring.
+              </p>
+              <div class="bottom-line"></div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section ref="section1" class="project" style="margin-bottom: 35%; opacity: 0;">
-        <div class="center_text">
-          <h3 class="h3_section" style="margin-bottom: 50px" ref="services">Services</h3>
-          <div class="top-line"></div>
-          <h3 class="h3_section_service">Web Development</h3>
-          <p class="p_section_service"> Framer,
-            Webflow, React, Vue.js, Angular.
-            (Three.js coming Q4 2024)<br>
-            If you want to work with an other framework, we can adapt to your needs.
-          </p>
-          <div class="bottom-line"></div>
-          <h3 class="h3_section_service" style="display: inline-block;">E-Commerce</h3>
-          <p class="p_section_service">
-            You want to create an e-commerce website? We can help you to create your online store.
-            We can work with Shopify or an other e-commerce platform.
-          </p>
-          <div class="bottom-line"></div>
-          <h3 class="h3_section_service" style="display: inline-block;">Back-end</h3>
-          <p class="p_section_service ">
-            Go (Golang), Adonis.js, Node.js, Express.js.
-          </p>
-          <div class="bottom-line"></div>
-          <h3 class="h3_section_service" style="display: inline-block;">DevOps</h3>
-          <p class="p_section_service">
-            DevOps are coming for Q4 2024.
-            Our service will include consulting, CI/CD and monitoring.
-          </p>
-          <div class="bottom-line"></div>
-        </div>
-      </section>
-
-      <section ref="section2" class="project" style="opacity: 0;">
-        <div class="center_text">
-          <h3 class="h3_section" ref="aboutUs">About Us</h3>
-          <p class="p_section_about" ref="p_about">
-            We are two developers who are passionate about web development.
-            Our goal is to make difference in the web development industry. We want to create a new way to develop.
-            Honnesty and transparency are our values.
-          </p>
-          <div class="team-members" style="margin-bottom: 10%;">
-            <div class="team-member">
-              <img class="profile-pic" src="~/assets/gillyan.jpeg" alt="Gillyan">
-              <p class="member-name">Gillyan Como</p>
-              <p>Founder</p>
-              <a href="https://www.linkedin.com/in/gillyancomo/" target="_blank">
-                <img class="fa fa-linkedin" src="~/assets/linkedin.webp">
-              </a>
-            </div>
-            <div class="team-member">
-              <img class="profile-pic" src="~/assets/pauline.jpeg" alt="Pauline">
-              <p class="member-name">Pauline Neumann</p>
-              <p>Co-Founder</p>
-              <a href="https://www.linkedin.com/in/pauline-neumann-842098176/" target="_blank">
-                <img class="fa fa-linkedin" src="~/assets/linkedin.webp">
-              </a>
+        <section ref="section2" class="project" style="opacity: 0;">
+          <div class="center_text">
+            <h3 class="h3_section" ref="aboutUs">About Us</h3>
+            <p class="p_section_about" ref="p_about">
+              We are two developers who are passionate about web development.
+              Our goal is to make difference in this industry. We want to create a new way to develop.
+              Honnesty and transparency are our values.
+            </p>
+            <div class="team-members" style="margin-bottom: 10%;">
+              <div class="team-member">
+                <img class="profile-pic" src="~/assets/gillyan.jpeg" alt="Gillyan">
+                <p class="member-name">Gillyan Como</p>
+                <p>Founder</p>
+                <a href="https://www.linkedin.com/in/gillyancomo/" target="_blank">
+                  <img class="fa fa-linkedin" src="~/assets/linkedin.webp">
+                </a>
+              </div>
+              <div class="team-member">
+                <img class="profile-pic" src="~/assets/pauline.jpeg" alt="Pauline">
+                <p class="member-name">Pauline Neumann</p>
+                <p>Co-Founder</p>
+                <a href="https://www.linkedin.com/in/pauline-neumann-842098176/" target="_blank">
+                  <img class="fa fa-linkedin" src="~/assets/linkedin.webp">
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </main>
   </div>
 </template>
 
 <style>
+
 .p_section_about {
   margin-right: 50%;
   margin-top: 5%;
   margin-bottom: 10%;
   opacity: 0;
+  max-width: 700px;
 }
 
 @media (max-width: 1024px) {
@@ -492,7 +506,7 @@ h1 {
   transform: translateZ(0);
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  opacity: 1;
+  opacity: 0;
 }
 
 .h3_section {
@@ -602,17 +616,17 @@ export default {
     cancelAnimationFrame(this.animationFrameId);
     this.lenis.destroy();
     window.removeEventListener('resize', this.onWindowResize);
-    window.removeEventListener('scroll', this.onScroll);
+    // window.removeEventListener('scroll', this.onScroll);
   },
   methods: {
 
-    displaySection1() {
-      gsap.to(this.$refs.section1, {
-        duration: 1.5,
-        opacity: 1,
-        ease: "power2.inOut",
-      });
-    },
+    // displaySection1() {
+    //   gsap.to(this.$refs.section1, {
+    //     duration: 1.5,
+    //     opacity: 1,
+    //     ease: "power2.inOut",
+    //   });
+    // },
 
     displaySection2() {
       gsap.to(this.$refs.section2, {
@@ -626,6 +640,11 @@ export default {
       const aboutUs = this.$refs.aboutUs;
       const services = this.$refs.services;
       const p_about = this.$refs.p_about;
+      const web_dev = this.$refs.web_dev;
+      const e_comm = this.$refs.e_comm;
+      const back_end = this.$refs.back_end;
+      const devops = this.$refs.devops;
+
 
       ScrollTrigger.create({
         trigger: aboutUs,
@@ -674,9 +693,8 @@ export default {
         start: "top bottom",
         end: "bottom top",
         onEnter: () => {
-          services.style.opacity = 1;
           gsap.fromTo(
-            services,
+            [services, web_dev, e_comm, back_end, devops],
             {
               y: 100,
               opacity: 0
@@ -708,7 +726,6 @@ export default {
     onScroll() {
       this.scrollPosition = window.scrollY;
       this.camera.position.z = this.calculateCameraZ(this.scrollPosition);
-      // this.camera.position.x = this.calculateCameraX(this.scrollPosition);
     },
 
     calculateCameraX(scrollY) {
@@ -767,7 +784,7 @@ export default {
           onComplete: () => {
             this.scrollSmooth();
             this.animateSectionService();
-            this.displaySection1();
+            // this.displaySection1();
             this.displaySection2();
             window.addEventListener('scroll', this.onScroll);
           }

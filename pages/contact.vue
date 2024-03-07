@@ -23,7 +23,7 @@
                     <div class="center_text">
                         <div class="first_section_heading">
                             <h1 id="mainHeading" class="is-mob can-view" ref="title">
-                                Contact us at 
+                                Contact us
                                 <a class="mail" href="mailto: contact@spheredev.studio">
                                     contact@spheredev.studio
                                 </a>
@@ -37,15 +37,14 @@
 </template>
 
 <style>
-
 .mail {
-  font-size: clamp(2.75rem, 3.625rem, 8rem);
+    font-size: clamp(2.75rem, 3.625rem, 8rem);
 }
 
 @media (max-width: 575px) {
-  .mail {
-    font-size: 1.75rem;
-  }
+    .mail {
+        font-size: 1.75rem;
+    }
 }
 
 .p_section_about {
@@ -558,10 +557,10 @@ export default {
                     duration: 2,
                     ease: 'power4.out',
                     onComplete: () => {
-                        this.scrollSmooth();
-                        this.animateSectionService();
-                        this.displaySection1();
-                        this.displaySection2();
+                        // this.scrollSmooth();
+                        // this.animateSectionService();
+                        // this.displaySection1();
+                        // this.displaySection2();
                         window.addEventListener('scroll', this.onScroll);
                     }
                 }
