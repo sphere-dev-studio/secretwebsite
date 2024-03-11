@@ -8,7 +8,6 @@
           fill="white" />
       </svg>
     </a>
-
     <span class="menu">
       <NuxtLink to="/contact">
         Contact
@@ -52,6 +51,7 @@
                 </h1>
               </div>
             </div>
+            <!-- <button id="servicesButton">Services</button> -->
           </div>
         </section>
 
@@ -79,7 +79,7 @@
             <div ref="back_end" style="opacity: 0;">
               <h3 class="h3_section_service" style="display: inline-block;">Back-end</h3>
               <p class="p_section_service ">
-                Go (Golang), Adonis.js, Node.js, Express.js.
+                Go, Adonis.js, Node.js, Express.js.
                 <br>
                 If you want to work with an other framework, we can adapt to your needs.
               </p>
@@ -130,6 +130,26 @@
 </template>
 
 <style>
+
+#servicesButton {
+  position: absolute; /* Positionnement absolu par rapport à son conteneur relatif */
+  bottom: 10%; /* Au bas du conteneur */
+  left: 50%; /* Déplacement à 50% de la gauche pour centrer */
+  transform: translateX(-50%); /* Ajustement pour un centrage précis */
+  background-color: transparent; /* Fond transparent */
+  border: 1px solid white; /* Bordure blanche (ajustez selon le thème de votre site) */
+  border-radius: 50px; /* Bordures arrondies */
+  padding: 10px 20px; /* Espacement intérieur (ajustez selon vos préférences) */
+  color: white; /* Couleur du texte (ajustez selon le thème de votre site) */
+  cursor: pointer; /* Curseur pointeur pour indiquer qu'il s'agit d'un bouton cliquable */
+  font-size: 16px; /* Taille de la police (ajustez selon vos préférences) */
+  transition: all 0.3s ease; /* Ajout d'une transition pour l'effet de remplissage */
+}
+
+#servicesButton:hover {
+  background-color: white; /* Fond blanc au survol */
+  color: #000; /* Changement de la couleur du texte en noir pour le contraste */
+}
 
 .p_section_about {
   margin-right: 50%;
@@ -611,6 +631,7 @@ export default {
     this.animate = this.animate.bind(this);
     this.animate();
     this.animateCameraPosition();
+    // this.jumpToSection();
   },
   beforeDestroy() {
     cancelAnimationFrame(this.animationFrameId);
@@ -619,6 +640,17 @@ export default {
     // window.removeEventListener('scroll', this.onScroll);
   },
   methods: {
+
+    //function jump to section
+    // jumpToSection() {
+    //   const servicesButton = document.getElementById('servicesButton');
+    //   servicesButton.addEventListener('click', () => {
+    //     window.scrollTo({
+    //       top: window.innerHeight,
+    //       behavior: 'smooth'
+    //     });
+    //   });
+    // },
 
     // displaySection1() {
     //   gsap.to(this.$refs.section1, {
