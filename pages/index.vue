@@ -79,7 +79,7 @@
             <div ref="back_end" style="opacity: 0;">
               <h3 class="h3_section_service" style="display: inline-block;">Back-end</h3>
               <p class="p_section_service ">
-                Go, Adonis.js, Node.js, Express.js.
+                Go (Golang), Adonis.js, Node.js, Express.js.
                 <br>
                 If you want to work with an other framework, we can adapt to your needs.
               </p>
