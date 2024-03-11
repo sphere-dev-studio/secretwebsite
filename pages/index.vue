@@ -81,7 +81,7 @@
               <p class="p_section_service ">
                 Go (Golang), Adonis.js, Node.js, Express.js.
                 <br>
-                If you want to work with an other framework, we can adapt to your needs.
+                If you want to work with an other framework, we can adapt to your needs
               </p>
               <div class="bottom-line"></div>
             </div>
