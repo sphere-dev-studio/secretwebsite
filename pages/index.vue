@@ -126,7 +126,7 @@
 
         <section ref="section2" class="project" style="opacity: 0;">
           <div class="center_text">
-            <h3 class="h3_section" ref="aboutUs">About Us</h3>
+            <h3 class="h3_section" ref="aboutUs">{{$t('aboutUs')  }}</h3>
             <p class="p_section_about" ref="p_about">{{ $t('about') }}</p>
             <!-- <p class="p_section_about" ref="p_about">
               We are two developers who are passionate about web development.
