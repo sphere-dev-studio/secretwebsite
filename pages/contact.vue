@@ -23,7 +23,8 @@
                     <div class="center_text">
                         <div class="first_section_heading">
                             <h1 id="mainHeading" class="is-mob can-view" ref="title">
-                                Contact us
+                                {{ $t('contactUs') }}
+                                <!-- Contact us -->
                                 <a class="mail" href="mailto: contact@spheredev.studio">
                                     contact@spheredev.studio
                                 </a>

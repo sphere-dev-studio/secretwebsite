@@ -41,21 +41,49 @@
             <div class="center_text">
               <div class="first_section_heading">
                 <h1 id="mainHeading" class="is-mob can-view" ref="title">
-                  <span>Digital Agency,</span>
+                  <span>{{ $t('digitalAgency') }}</span>
                   <br>
-                  <span>Creative</span>
+                  <span>{{ $t('creative') }}</span>
                   <br>
-                  <span>& Web Development,</span>
+                  <span>{{ $t('webDevelopment') }}</span>
                   <br>
-                  <span>based in France</span>
+                  <span>{{ $t('basedInFrance') }}</span>
                 </h1>
               </div>
             </div>
-            <!-- <button id="servicesButton">Services</button> -->
+            <!-- <button id="servicesButton">Scroll</button> -->
           </div>
         </section>
 
         <section class="project" style="margin-bottom: 20%;">
+          <div class="center_text">
+            <h3 class="h3_section" style="margin-bottom: 50px" ref="services">{{ $t('services') }}</h3>
+            <div style="opacity: 0;" ref="web_dev">
+              <div class="top-line"></div>
+              <h3 class="h3_section_service">{{ $t('web') }}</h3>
+              <p class="p_section_service">{{ $t('webDevelopmentDescription') }}</p>
+              <div class="bottom-line"></div>
+            </div>
+            <div ref="e_comm" style="opacity: 0;">
+              <h3 class="h3_section_service" style="display: inline-block;">{{ $t('eCommerce') }}</h3>
+              <p class="p_section_service">{{ $t('eCommerceDescription') }}</p>
+              <div class="bottom-line"></div>
+            </div>
+            <div ref="back_end" style="opacity: 0;">
+              <h3 class="h3_section_service" style="display: inline-block;">{{ $t('backEnd') }}</h3>
+              <p class="p_section_service">{{ $t('backEndDescription') }}</p>
+              <div class="bottom-line"></div>
+            </div>
+            <div ref="devops" style="opacity: 0;">
+              <h3 class="h3_section_service" style="display: inline-block;">{{ $t('devOps') }}</h3>
+              <p class="p_section_service">{{ $t('devOpsDescription') }}</p>
+              <div class="bottom-line"></div>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- <section class="project" style="margin-bottom: 20%;">
           <div class="center_text">
             <h3 class="h3_section" style="margin-bottom: 50px" ref="services">Services</h3>
             <div style="opacity: 0;" ref="web_dev">
@@ -94,16 +122,17 @@
               <div class="bottom-line"></div>
             </div>
           </div>
-        </section>
+        </section> -->
 
         <section ref="section2" class="project" style="opacity: 0;">
           <div class="center_text">
             <h3 class="h3_section" ref="aboutUs">About Us</h3>
-            <p class="p_section_about" ref="p_about">
+            <p class="p_section_about" ref="p_about">{{ $t('about') }}</p>
+            <!-- <p class="p_section_about" ref="p_about">
               We are two developers who are passionate about web development.
               Our goal is to make difference in this industry. We want to create a new way to develop.
               Honesty and transparency are our values.
-            </p>
+            </p> -->
             <div class="team-members" style="margin-bottom: 10%;">
               <div class="team-member">
                 <img class="profile-pic" src="~/assets/gillyan.jpeg" alt="Gillyan">
@@ -130,25 +159,38 @@
 </template>
 
 <style>
-
 #servicesButton {
-  position: absolute; /* Positionnement absolu par rapport à son conteneur relatif */
-  bottom: 10%; /* Au bas du conteneur */
-  left: 50%; /* Déplacement à 50% de la gauche pour centrer */
-  transform: translateX(-50%); /* Ajustement pour un centrage précis */
-  background-color: transparent; /* Fond transparent */
-  border: 1px solid white; /* Bordure blanche (ajustez selon le thème de votre site) */
-  border-radius: 50px; /* Bordures arrondies */
-  padding: 10px 20px; /* Espacement intérieur (ajustez selon vos préférences) */
-  color: white; /* Couleur du texte (ajustez selon le thème de votre site) */
-  cursor: pointer; /* Curseur pointeur pour indiquer qu'il s'agit d'un bouton cliquable */
-  font-size: 16px; /* Taille de la police (ajustez selon vos préférences) */
-  transition: all 0.3s ease; /* Ajout d'une transition pour l'effet de remplissage */
+  position: absolute;
+  /* Positionnement absolu par rapport à son conteneur relatif */
+  bottom: 10%;
+  /* Au bas du conteneur */
+  left: 50%;
+  /* Déplacement à 50% de la gauche pour centrer */
+  transform: translateX(-50%);
+  /* Ajustement pour un centrage précis */
+  background-color: transparent;
+  /* Fond transparent */
+  border: 1px solid white;
+  /* Bordure blanche (ajustez selon le thème de votre site) */
+  border-radius: 50px;
+  /* Bordures arrondies */
+  padding: 10px 20px;
+  /* Espacement intérieur (ajustez selon vos préférences) */
+  color: white;
+  /* Couleur du texte (ajustez selon le thème de votre site) */
+  cursor: pointer;
+  /* Curseur pointeur pour indiquer qu'il s'agit d'un bouton cliquable */
+  font-size: 16px;
+  /* Taille de la police (ajustez selon vos préférences) */
+  transition: all 0.3s ease;
+  /* Ajout d'une transition pour l'effet de remplissage */
 }
 
 #servicesButton:hover {
-  background-color: white; /* Fond blanc au survol */
-  color: #000; /* Changement de la couleur du texte en noir pour le contraste */
+  background-color: white;
+  /* Fond blanc au survol */
+  color: #000;
+  /* Changement de la couleur du texte en noir pour le contraste */
 }
 
 .p_section_about {
@@ -642,15 +684,15 @@ export default {
   methods: {
 
     //function jump to section
-    // jumpToSection() {
-    //   const servicesButton = document.getElementById('servicesButton');
-    //   servicesButton.addEventListener('click', () => {
-    //     window.scrollTo({
-    //       top: window.innerHeight,
-    //       behavior: 'smooth'
-    //     });
-    //   });
-    // },
+    jumpToSection() {
+      const servicesButton = document.getElementById('servicesButton');
+      servicesButton.addEventListener('click', () => {
+        window.scrollTo({
+          top: window.innerHeight,
+          behavior: 'smooth'
+        });
+      });
+    },
 
     // displaySection1() {
     //   gsap.to(this.$refs.section1, {
