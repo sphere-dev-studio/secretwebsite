@@ -126,8 +126,8 @@
 
         <section ref="section2" class="project" style="opacity: 0;">
           <div class="center_text">
-            <h3 class="h3_section" ref="aboutUs">{{$t('aboutUs')  }}</h3>
-            <p class="p_section_about" ref="p_about">{{ $t('about') }}</p>
+            <!-- <h3 class="h3_section" ref="aboutUs">{{$t('aboutUs')  }}</h3>
+            <p class="p_section_about" ref="p_about">{{ $t('about') }}</p> -->
             <!-- <p class="p_section_about" ref="p_about">
               We are two developers who are passionate about web development.
               Our goal is to make difference in this industry. We want to create a new way to develop.
@@ -142,14 +142,14 @@
                   <img class="fa fa-linkedin" src="~/assets/linkedin.webp">
                 </a>
               </div>
-              <div class="team-member">
+              <!-- <div class="team-member">
                 <img class="profile-pic" src="~/assets/pauline.jpeg" alt="Pauline">
                 <p class="member-name">Pauline Neumann</p>
                 <p>Co-Founder</p>
                 <a href="https://www.linkedin.com/in/pauline-neumann-842098176/" target="_blank">
                   <img class="fa fa-linkedin" src="~/assets/linkedin.webp">
                 </a>
-              </div>
+              </div> -->
             </div>
           </div>
         </section>
@@ -306,7 +306,6 @@
 .first_section_center {
   display: table-cell;
   vertical-align: middle;
-
 }
 
 .first_section_heading {
